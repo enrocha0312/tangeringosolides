@@ -1,5 +1,6 @@
 package br.eduardondarocha.desafioTangerino.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,7 +22,7 @@ public class Usuario {
     private String username;
     @Column(nullable = false)
     private String senha;
-    private List<Post> posts;
-    private List<Comentario> comentarios;
-    private List<Foto> fotos;
+    @OneToMany(mappedBy = "usuario")
+    @JsonManagedReference
+    private List<Album> fotos;
 }

@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.List;
 
@@ -19,6 +21,10 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private List<String> imagens;
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Usuario usuario;
     private List<String> links;
+    private List<Comentario> comentarios;
 }
