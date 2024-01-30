@@ -22,18 +22,15 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
-
     @GetMapping
     public ResponseEntity<List<Usuario>> findAll(){
         List<Usuario> usuarios = usuarioService.findAll();
         return new ResponseEntity<>(usuarios, HttpStatus.OK);
     }
-
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Usuario>> findById(@PathVariable("id") Integer id){
         return new ResponseEntity<>(usuarioService.findById(id), HttpStatus.OK);
     }
-
     @PostMapping
     public ResponseEntity<Usuario> create(@Valid @RequestBody Usuario usuario){
         Usuario user = usuarioService.adicionar(usuario);

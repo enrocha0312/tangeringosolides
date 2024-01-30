@@ -9,12 +9,8 @@ import org.springframework.stereotype.Service;
 public class FotoService {
     @Autowired
     private FotoRepository fotoRepository;
-
     public Foto adicionar(Foto foto){
         foto.setId(null);
         return fotoRepository.save(foto);
-    }
-    public void delete(Integer id){
-        fotoRepository.deleteById(id);
     }
 }

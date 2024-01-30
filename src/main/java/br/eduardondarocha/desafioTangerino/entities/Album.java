@@ -13,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Table(name = "albuns")
 public class Album {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
