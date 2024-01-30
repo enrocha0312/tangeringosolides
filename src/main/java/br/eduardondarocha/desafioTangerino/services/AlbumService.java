@@ -14,4 +14,7 @@ public class AlbumService {
         album.setId(null);
         return albumRepository.save(album);
     }
+    public void delete(Integer id){
+        albumRepository.deleteById(id);
+    }
 }

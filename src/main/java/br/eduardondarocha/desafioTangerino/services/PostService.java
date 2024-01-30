@@ -11,13 +11,14 @@ import java.util.List;
 public class PostService {
     @Autowired
     private PostRepository postRepository;
-
     public Post adicionar(Post post){
         post.setId(null);
         return postRepository.save(post);
     }
-
     public List<Post> findAll(){
         return postRepository.findAll();
+    }
+    public void delete(Integer id){
+        postRepository.deleteById(id);
     }
 }

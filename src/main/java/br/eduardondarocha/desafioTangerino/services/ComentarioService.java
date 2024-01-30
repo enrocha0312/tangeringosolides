@@ -20,4 +20,7 @@ public class ComentarioService {
     public List<Comentario> findAll(){
         return comentarioRepository.findAll();
     }
+    public void delete(Integer id){
+        comentarioRepository.deleteById(id);
+    }
 }

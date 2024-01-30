@@ -14,4 +14,7 @@ public class FotoService {
         foto.setId(null);
         return fotoRepository.save(foto);
     }
+    public void delete(Integer id){
+        fotoRepository.deleteById(id);
+    }
 }
