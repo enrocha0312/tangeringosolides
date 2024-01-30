@@ -20,7 +20,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("tangerinoapi/posts")
 public class PostController {
-
     @Autowired
     private PostService postService;
     @Autowired

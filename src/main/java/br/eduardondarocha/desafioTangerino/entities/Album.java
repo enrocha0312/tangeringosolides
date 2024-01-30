@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.List;
 
@@ -24,6 +26,7 @@ public class Album {
     @JsonBackReference
     private Usuario usuario;
     @OneToMany(mappedBy = "album")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonManagedReference
     private List<Foto> fotos;
 }

@@ -1,5 +1,6 @@
 package br.eduardondarocha.desafioTangerino.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,8 +24,10 @@ public class Post {
     private List<String> imagens;
     @ManyToOne
     @JoinColumn(name = "usuario_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Usuario usuario;
     private List<String> links;
+    @OneToMany(mappedBy = "post")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonManagedReference
     private List<Comentario> comentarios;
 }

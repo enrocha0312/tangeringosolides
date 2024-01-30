@@ -25,7 +25,7 @@ public class PostService {
         postRepository.deleteById(id);
     }
     public List<Post> findPostByUsername(String username){
-        if(!usuarioRepository.findByUserName(username).isPresent())return null;
-        return postRepository.findbyUsuario(username).get();
+        if(!usuarioRepository.findByUsername(username).isPresent())return null;
+        return postRepository.findbyUsuario_Id(username).get();
     }
 }

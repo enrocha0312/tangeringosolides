@@ -26,7 +26,7 @@ public class ComentarioService {
         comentarioRepository.deleteById(id);
     }
     public List<Comentario> findComentarioByUser(String username){
-        if(!usuarioRepository.findByUserName(username).isPresent())return null;
-        return comentarioRepository.findbyUsuario(username).get();
+        if(!usuarioRepository.findByUsername(username).isPresent())return null;
+        return comentarioRepository.findbyUsuario_Id(username).get();
     }
 }

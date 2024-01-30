@@ -37,7 +37,7 @@ public class UsuarioService {
     }
 
     public Optional<Usuario> findByUsername(String username){
-        return usuarioRepository.findByUserName(username);
+        return usuarioRepository.findByUsername(username);
     }
     public Usuario adicionar(Usuario usuario){
         usuario.setId(null);
@@ -53,7 +53,7 @@ public class UsuarioService {
             Authentication authentication = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
             SecurityContextHolder.getContext().setAuthentication(authentication);
             String token = HEADER_PREFIX + jwtTokenService.generateToken(authentication);
-            Usuario usuario = usuarioRepository.findByUserName(username).get();
+            Usuario usuario = usuarioRepository.findByUsername(username).get();
             return new LoginDTO(token, usuario);
         }catch (Exception e){
             System.out.println(e.getMessage());

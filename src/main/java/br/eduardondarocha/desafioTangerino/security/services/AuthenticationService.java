@@ -17,7 +17,7 @@ public class AuthenticationService implements UserDetailsService {
     private UsuarioRepository usuarioRepository;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return UsuarioByFunction(()->usuarioRepository.findByUserName(username));
+        return UsuarioByFunction(()->usuarioRepository.findByUsername(username));
     }
     private UserDetails UsuarioByFunction(Supplier<Optional<Usuario>> supplier) {
         return supplier.get().orElseThrow(() -> new UsernameNotFoundException("Usuario nao encontrado"));

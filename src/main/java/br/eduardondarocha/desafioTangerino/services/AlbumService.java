@@ -26,7 +26,7 @@ public class AlbumService {
         albumRepository.deleteById(id);
     }
     public List<Album> findAlbumByUsername(String username){
-        if(!usuarioRepository.findByUserName(username).isPresent())return null;
-        return albumRepository.findbyUsuario(username).get();
+        if(!usuarioRepository.findByUsername(username).isPresent())return null;
+        return albumRepository.findbyUsuario_Id(username).get();
     }
 }

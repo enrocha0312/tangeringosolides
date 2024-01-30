@@ -19,7 +19,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("tangerinoapi/albuns")
 public class AlbumController {
-
     @Autowired
     private AlbumService albumService;
     @Autowired
